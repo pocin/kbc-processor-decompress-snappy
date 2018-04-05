@@ -48,7 +48,7 @@ if __name__ == "__main__":
             logging.basicConfig(stream=sys.stdout, level=logging.INFO)
         logging.debug("Starting processor")
         main('/data/in/files/')
-    except (ValueError, KeyError) as err:
+    except (ValueError, KeyError, snappy.UncompressError) as err:
         logging.exception(err)
         sys.exit(1)
     except:
